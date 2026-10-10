@@ -8,7 +8,12 @@ client = genai.Client()
 try:
     response = client.models.generate_content(
         model="gemini-3.5-flash-lite",
-        contents="Hey there! I am Adyasha."
+        config={
+            "system_instruction": (
+                "You are a senior engineer in an MNC."
+            )
+        },
+        contents="Give me 5 interview questions on JavaScript."
     )
 
     print("Response:", response.text)
